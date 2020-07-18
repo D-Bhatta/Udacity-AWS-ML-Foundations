@@ -1,8 +1,11 @@
 # TODO: import necessary libraries
+import math
+
+import matplotlib.pyplot as plt
+from distributions.GeneralDistributions import Distribution
 
 # TODO: make a Binomial class that inherits from the Distribution class. Use the specifications below.
-    """ Binomial distribution class for calculating and
-    visualizing a Binomial distribution.
+    """ Binomial distribution class for calculating and visualizing a Binomial distribution.
 
     Attributes:
         mean (float) representing the mean value of the distribution

@@ -1,8 +1,7 @@
 import math
 
 import matplotlib.pyplot as plt
-
-from .Generaldistribution import Distribution
+from distributions.Generaldistribution import Distribution
 
 
 class Binomial(Distribution):
@@ -199,10 +198,10 @@ class Binomial(Distribution):
 
         """
 
-        try:
-            assert self.p == other.p, "p values are not equal"
-        except AssertionError as error:
-            raise
+        # try:
+        #     assert self.p == other.p, "p values are not equal"
+        # except AssertionError as error:
+        #     raise
 
         # TODO: Define addition for two binomial distributions. Assume that the
         # p values of the two distributions are the same. The formula for
