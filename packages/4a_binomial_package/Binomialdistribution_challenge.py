@@ -4,7 +4,9 @@ import math
 import matplotlib.pyplot as plt
 from distributions.GeneralDistributions import Distribution
 
+
 # TODO: make a Binomial class that inherits from the Distribution class. Use the specifications below.
+class Binomial(Distribution):
     """ Binomial distribution class for calculating and visualizing a Binomial distribution.
 
     Attributes:
@@ -29,15 +31,16 @@ from distributions.GeneralDistributions import Distribution
     #
 
     # TODO: define the init function
-
+    def __init__(self):
         # TODO: store the probability of the distribution in an instance variable p
         # TODO: store the size of the distribution in an instance variable n
 
         # TODO: Now that you know p and n, you can calculate the mean and standard deviation
         #       You can use the calculate_mean() and calculate_stdev() methods defined below along with the __init__ function from the Distribution class
+        pass
 
     # TODO: write a method calculate_mean() according to the specifications below
-
+    def calculate_mean(self):
         """Function to calculate the mean from p and n
 
         Args:
@@ -47,10 +50,10 @@ from distributions.GeneralDistributions import Distribution
             float: mean of the data set
 
         """
+        pass
 
-
-    #TODO: write a calculate_stdev() method accordin to the specifications below.
-
+    # TODO: write a calculate_stdev() method accordin to the specifications below.
+    def calculate_stdev(self):
         """Function to calculate the standard deviation from p and n.
 
         Args:
@@ -78,7 +81,7 @@ from distributions.GeneralDistributions import Distribution
     #
     #       Hint: You can use the calculate_mean() and calculate_stdev() methods
     #           defined previously.
-
+    def replace_stats_with_data(self):
         """Function to calculate p and n from the data set. The function updates the p and n variables of the object.
 
         Args:
@@ -89,8 +92,10 @@ from distributions.GeneralDistributions import Distribution
             float: the n value
 
         """
+        pass
 
     # TODO: write a method plot_bar() that outputs a bar chart of the data set according to the following specifications.
+    def plot_bar(self):
         """Function to output a histogram of the instance variable data using
         matplotlib pyplot library.
 
@@ -100,8 +105,10 @@ from distributions.GeneralDistributions import Distribution
         Returns:
             None
         """
+        pass
 
-    #TODO: Calculate the probability density function of the binomial distribution
+    # TODO: Calculate the probability density function of the binomial distribution
+    def pdf(self):
         """Probability density function calculator for the binomial distribution.
 
         Args:
@@ -111,9 +118,10 @@ from distributions.GeneralDistributions import Distribution
         Returns:
             float: probability density function output
         """
+        pass
 
     # write a method to plot the probability density function of the binomial distribution
-
+    def plot_bar_pdf(self):
         """Function to plot the pdf of the binomial distribution
 
         Args:
@@ -124,6 +132,7 @@ from distributions.GeneralDistributions import Distribution
             list: y values for the pdf plot
 
         """
+        pass
 
         # TODO: Use a bar chart to plot the probability density function from
         # k = 0 to k = n
@@ -137,6 +146,7 @@ from distributions.GeneralDistributions import Distribution
         #   The x and y values should be stored in separate lists
 
     # write a method to output the sum of two binomial distributions. Assume both distributions have the same p value.
+    def __add__(self):
 
         """Function to add together two Binomial distributions with equal p
 
@@ -149,7 +159,7 @@ from distributions.GeneralDistributions import Distribution
         """
 
         try:
-            assert self.p == other.p, 'p values are not equal'
+            assert self.p == other.p, "p values are not equal"
         except AssertionError as error:
             raise
 
@@ -162,8 +172,10 @@ from distributions.GeneralDistributions import Distribution
 
         # Hint: When adding two binomial distributions, the p value remains the same
         #   The new n value is the sum of the n values of the two distributions.
+        pass
 
     # use the __repr__ magic method to output the characteristics of the binomial distribution object.
+    def __repr__(self):
 
         """Function to output the characteristics of the Binomial instance
 
