@@ -62,7 +62,8 @@ class Binomial(Distribution):
             float: mean of the data set
 
         """
-        return self.p * self.n
+        self.mean = self.p * self.n
+        return self.mean
 
     # TODO: write a calculate_stdev() method accordin to the specifications
     # below.
@@ -76,7 +77,8 @@ class Binomial(Distribution):
             float: standard deviation of the data set
 
         """
-        return math.sqrt(self.n * self.p * (1 - self.p))
+        self.stdev = math.sqrt(self.n * self.p * (1 - self.p))
+        return self.stdev
 
     # TODO: write a replace_stats_with_data() method according to the
     # specifications below. The read_data_file() from the Generaldistribution
@@ -109,7 +111,19 @@ class Binomial(Distribution):
             float: the n value
 
         """
-        pass
+        # updates the n attribute of the binomial distribution
+        self.n = len(self.data)
+
+        # updates the p value of the binomial distribution by calculating
+        # the number of positive trials divided by the total trials
+        num_ones = self.data.count(1)  # finds number of ones
+        self.p = num_ones / self.n
+
+        # updates the mean attribute
+        self.calculate_mean()
+
+        # updates the standard deviation attribute
+        self.calculate_stdev()
 
     # TODO: write a method plot_bar() that outputs a bar chart of the data set
     # according to the following specifications.
