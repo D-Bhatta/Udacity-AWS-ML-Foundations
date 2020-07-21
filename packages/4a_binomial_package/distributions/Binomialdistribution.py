@@ -2,7 +2,8 @@
 import math
 
 import matplotlib.pyplot as plt
-from distributions.GeneralDistribution import Distribution
+
+from .Generaldistribution import Distribution
 
 
 # TODO: make a Binomial class that inherits from the Distribution class. Use
@@ -137,11 +138,15 @@ class Binomial(Distribution):
         Returns:
             None
         """
-        pass
+        plt.hist(self.data, density=True)
+        plt.title("Histogram: Dataset")
+        plt.xlabel("Binomial Values")
+        plt.ylabel("Counts")
+        plt.savefig("binomial_dist_histogram.png", format="png")
 
     # TODO: Calculate the probability density function of the binomial
     # distribution
-    def pdf(self):
+    def pdf(self, k):
         """Probability density function calculator for the binomial
         distribution.
 
@@ -152,7 +157,10 @@ class Binomial(Distribution):
         Returns:
             float: probability density function output
         """
-        pass
+        # Calculate combination(n,k)
+        nck = math.comb(self.n, k)  # pylint: disable=no-member
+        prob_mass = nck * ((self.p ** k) * ((1 - self.p) ** (self.n - k)))
+        return prob_mass
 
     # write a method to plot the probability density function of the binomial
     # distribution
