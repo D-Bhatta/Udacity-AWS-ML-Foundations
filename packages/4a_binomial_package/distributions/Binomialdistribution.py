@@ -126,6 +126,10 @@ class Binomial(Distribution):
         # updates the standard deviation attribute
         self.calculate_stdev()
 
+        # return p and n
+
+        return self.p, self.n
+
     # TODO: write a method plot_bar() that outputs a bar chart of the data set
     # according to the following specifications.
     def plot_bar(self):
@@ -175,8 +179,6 @@ class Binomial(Distribution):
             list: y values for the pdf plot
 
         """
-        pass
-
         # TODO: Use a bar chart to plot the probability density function from
         # k = 0 to k = n
 
@@ -189,6 +191,17 @@ class Binomial(Distribution):
         #   This method should also return the x and y values used to make the
         #   chart
         #   The x and y values should be stored in separate lists
+        x = [i for i in range(0, self.n)]
+        y = [self.pdf(i) for i in x]
+        fig, ax = plt.subplots()
+        ax.plot(x, y)
+        ax.set_title("PDF of Binomial distribution")
+        ax.set_xlabel("X values")
+        ax.set_ylabel("Probability Density")
+        plt.savefig("binomial_dist_pdf_plot.png", format="png")
+
+        # return x and y
+        return x, y
 
     # write a method to output the sum of two binomial distributions. Assume
     # both distributions have the same p value.
@@ -204,10 +217,10 @@ class Binomial(Distribution):
 
         """
 
-        # try:
-        #     assert self.p == other.p, "p values are not equal"
-        # except AssertionError as error:
-        #     raise
+        try:
+            assert self.p == other.p, "p values are not equal"
+        except AssertionError as error:
+            raise "The distributions cannot be added"
 
         # TODO: Define addition for two binomial distributions. Assume that the
         # p values of the two distributions are the same. The formula for
@@ -221,7 +234,10 @@ class Binomial(Distribution):
         # Hint: When adding two binomial distributions, the p value remains the
         #  same
         #   The new n value is the sum of the n values of the two distributions.
-        pass
+        new_dist = Binomial(self.p, (self.n + other.n))
+        if self.data and other.data:
+            new_dist.data = self.data + other.data
+        return new_dist
 
     # use the __repr__ magic method to output the characteristics of the
     # binomial distribution object.
@@ -244,4 +260,6 @@ class Binomial(Distribution):
         # values are
         # The method should return a string in the expected format
 
-        pass
+        return (
+            f"mean {self.mean}, standard deviation {self.stdev}, p {self.p}, n {self.n}"
+        )
