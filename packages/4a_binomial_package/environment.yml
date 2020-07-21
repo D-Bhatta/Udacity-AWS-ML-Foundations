@@ -1,0 +1,9 @@
+---
+
+name: oop
+dependencies:
+  - numpy
+  - matplotlib
+  - pip
+  - pytest
+  - python=3.8

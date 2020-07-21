@@ -5,6 +5,7 @@ language: python
 python: 3.8.3
 install:
   - pip install -r requirements_dev.txt
+  - pip install -e packages/4a_binomial_package
 script:
   - black --check .
   - pytest
