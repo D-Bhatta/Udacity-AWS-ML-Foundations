@@ -9,6 +9,5 @@ install:
 script:
   - black --check .
   - pytest
-  - python -m pytest tests/test.py
 env:
   - PYTHONBREAKPOINT=0
